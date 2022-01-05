@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Parkir</title>
+    <script>
+        function calc(){
+            let jamMasuk = document.getElementById("masuk").value;
+            let jamKeluar = document.getElementById("keluar").value;
+            let selisih = jamKeluar - jamMasuk;
+            let biaya = 0;
+            const tarifAwal = 3000;
+            const tarifPerJam = 1000;// perjam berikutnya
+
+            if (jamMasuk <= jamKeluar) {
+                if(selisih <= 2){
+                    biaya = tarifAwal;
+                } else{
+                    let tambahJam = selisih  - 2;
+                    biaya = tarifAwal + (tarifPerJam * tambahJam);
+                } 
+                let output = document.getElementById("outputBiaya");
+                output.innerHTML = "Biaya Parkir " + biaya;
+            } else {
+                alert("Jam masuk harus < atau = jam keluar");
+            }
+        }
+
+    </script>
+</head>                                
+<body>
+    <h3>Hitung biaya parkir</h3>
+    Masuk Parkir : <input type="number" size="10" id="masuk"/><br/>
+    Keluar Parkir : <input type="number" size="10" id="keluar"/><br/>
+    <button onclick="calc()">Biaya Parkir</button> : <span id="outputBiaya"></span>
+    
+</body>
+</html>
