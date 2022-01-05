@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Form Validation</title>
+   <style>
+      body {
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          background-color: burlywood;
+      }
+      
+      #data {
+          margin-top: 2rem;
+      }
+      
+      #data th,
+      #data td {
+          border: 1px solid black;
+          padding: 4px 12px;
+      }
+  </style>
+
+</head>
+<body>
+
+   <label for="Username">Nama Pelanggan:</label>
+   <input required maxlength="30" type="text" id="username" placeholder="Masukkan username">
+   <br>
+   <label for="Email">Email:</label>
+   <input required type="email" id="email" placeholder="Masukkan email">
+   <br>
+   <label for="Jam">Jam Keberangkatan:</label>
+   <input required type="time" id="time">
+   <br>
+   <label for="Tujuan">Tujuan Keberangkatan:</label>
+   <input required type="text" id="tujuan" placeholder="Kota Tujuan">
+   <br>
+   <label for="Tiket">Jumlah Tiket:</label>
+   <input required type="number" id="tiket" min="1" max="10">
+   <br>
+   <button onclick="validationForm()">Submit</button>
+
+   <div id="hasil"></div>
+
+   <script>
+      function validationForm() {
+         let Username = document.getElementById('username').value;
+         let Email = document.getElementById('email').value;
+         let Time = document.getElementById('time').value;
+         let Tujuan = document.getElementById('tujuan').value;
+         let Tiket = document.getElementById('tiket').value;
+      
+         // if(Username == "Virgin Zahrah Kuswandi" && Email == "virginzahrahkuswandi@gmail.com" && Time == "10:00" && Tujuan == "Yogyakarta" && Tiket == "2") {
+         //    // document.getElementById('hasil').innerHTML = 'Nama:' + Username;
+         //    console.log('Berhasil');
+         // }
+         if (Username.value == '') {
+            alert('data tidak boleh kosong');
+         }else if(Email.value == '') {
+            alert('data tidak boleh kosong');
+         }else if(Time.value == '') {
+            alert('data tidak boleh kosong');
+         }else if(Tujuan.value == '') {
+            alert('data tidak boleh kosong');
+         }else if(Tiket.value == '') {
+            alert('data tidak boleh kosong');
+         }else{
+            alert('data valid');
+            document.getElementById('hasil').innerHTML = 'Nama :' + Username + '<br>Email :' + Email + '<br>Time :' + Time + '<br>Tujuan :' + Tujuan + '<br>Jumlah tiket :' + Tiket;
+         }
+      }
+      
+   </script>
+</body>
+</html>
